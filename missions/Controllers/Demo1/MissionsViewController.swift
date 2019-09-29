@@ -16,6 +16,7 @@ class MissionsViewController: UIViewController {
 
     private var missions: Missions = Missions()
 
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     private lazy var slider: UISlider = {
         let slider = UISlider(frame: .zero)
@@ -64,8 +65,8 @@ extension MissionsViewController {
     }
     
     func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: "NotifyLeft"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: "NotifyRight"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: BLEDeviceSide.left.rawValue), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: BLEDeviceSide.right.rawValue), object: nil)
     }
     
     func removeObservers() {
@@ -73,10 +74,20 @@ extension MissionsViewController {
     }
     
     @objc func update(_ notification: Notification) {
-        if let userInfo = notification.userInfo as? [String: Any] {
-            if let leftValues = userInfo["value_left"] as? [Int] {
-                self.updateMissions(leftValues)
-            }
+        
+        guard
+            let userInfo = notification.userInfo,
+            let values = userInfo["values"] as? [Int]
+        else { return }
+        
+        switch notification.name.rawValue {
+        case BLEDeviceSide.left.rawValue:
+            self.updateMissions(values)
+
+        case BLEDeviceSide.right.rawValue:
+            self.updateMissions(values)
+
+        default: break
         }
     }
 }

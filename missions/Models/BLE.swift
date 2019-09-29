@@ -9,32 +9,89 @@
 import UIKit
 import CoreBluetooth
 
+
+enum BLEDeviceSide: String {
+    case left = "left"
+    case right = "right"
+}
+
+enum BLEAction: UInt8 {
+    
+    case stopStream
+    case startStream
+    case samplingRate
+    
+    func actionForByte(_ byte: UInt8) -> BLEAction {
+        switch byte {
+        case 0:
+            return .stopStream
+        case 1:
+            return .startStream
+        default:
+            return .samplingRate
+        }
+    }
+}
+
 class BLE: NSObject {
     
     // bluetooth variables
     var centralManager: CBCentralManager?
     var peripherals = [CBPeripheral]()
+    var leftPeripheral: CBPeripheral?
+    var rightPeripheral: CBPeripheral?
     var rxCharacteristicLeft: CBCharacteristic?
     var rxCharacteristicRight: CBCharacteristic?
     var connectedPeripherals = Int(0)
-    
-    // demo variables
-    var leftSensorArray:[Int] = [0,0,0,0,0,0]
-    var rightSensorArray:[Int] = [0,0,0,0,0,0]
-    
+
     override init() {
         super.init()
         self.startManager()
     }
     
-
+    func updatePeripheral(samplingRate: inout UInt8) {
+        guard let rxCharacteristicLeft = self.rxCharacteristicLeft else { return }
+        
+        let data = Data(bytes: &samplingRate,
+                             count: MemoryLayout.size(ofValue: samplingRate))
+        print("Data is \(String(format: "%.2x", [data]))")
+        self.peripherals.first?.writeValue(data, for: rxCharacteristicLeft, type: .withResponse)
+        
+    }
     
-
-    
-//    func removeObservers() {
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "NotifyLeft"), object: nil)
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "NotifyRight"), object: nil)
-//    }
+    func updatePeripheral(side: BLEDeviceSide, action: BLEAction, samplingRate: UInt8 = 50) {
+        switch action {
+        case .stopStream:
+            if let characteristic = self.rxCharacteristicLeft {
+                if side == .left {
+                    self.leftPeripheral?.setNotifyValue(false, for: characteristic)
+                } else if side == .right {
+                    self.rightPeripheral?.setNotifyValue(false, for: characteristic)
+                }
+            }
+        case .startStream:
+            if let characteristic = self.rxCharacteristicLeft {
+                if side == .left {
+                    self.leftPeripheral?.setNotifyValue(true, for: characteristic)
+                } else if side == .right {
+                    self.rightPeripheral?.setNotifyValue(true, for: characteristic)
+                }
+            }
+        case .samplingRate:
+            var bytes: UInt8 = samplingRate
+            let data = Data(bytes: &bytes,
+                                 count: MemoryLayout.size(ofValue: bytes))
+            print("Data is \(String(format: "%.2x", [data]))")
+            
+            if let characteristic = self.rxCharacteristicLeft {
+                if side == .left {
+                    self.leftPeripheral?.writeValue(data, for: characteristic, type: .withResponse)
+                } else if side == .right {
+                    self.rightPeripheral?.writeValue(data, for: characteristic, type: .withResponse)
+                }
+            }
+        }
+    }
 }
 
 extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
@@ -45,7 +102,6 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        
         print("The central manager updated state.")
         
         switch central.state {
@@ -77,7 +133,7 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
         
         print("Found peripheral named: \(name)")
         
-        if name == "LEFT" || name == "RIGHT" {
+        if name.contains(Strings.Missions.left) || name.contains(Strings.Missions.right) {
             self.peripherals.append(peripheral)
             central.connect(
                 peripheral,
@@ -99,9 +155,11 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
                 peripheral.setNotifyValue(true, for: characteristic)
                 peripheral.readValue(for: characteristic)
                 
-                if name == "LEFT" {
+                if name.contains(Strings.Missions.left) {
+                    self.leftPeripheral = peripheral
                     self.rxCharacteristicLeft = characteristic
-                } else if name == "RIGHT" {
+                } else if name.contains(Strings.Missions.right) {
+                    self.rightPeripheral = peripheral
                     self.rxCharacteristicRight = characteristic
                 }
             }
@@ -121,12 +179,11 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
                 if let value = characteristic.value, let asciiString = value.bytesToString(), let values = value.bytesToInt() {
                     
                     print("Value received: \(asciiString).")
-                    
-                    NotificationCenter.default.post(
-                        name: NSNotification.Name(rawValue: "NotifyLeft"),
-                        object: nil,
-                        userInfo: ["string": asciiString,
-                                   "value_left": values]
+                    self.leftPeripheral = peripheral
+                    NotificationCenter.postSensorValues(
+                        side: .left,
+                        string: asciiString,
+                        values: values
                     )
                 }
             }
@@ -134,13 +191,15 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
             if let rxCharacteristicRight = self.rxCharacteristicRight,
                 characteristic == rxCharacteristicRight {
                 if let value = characteristic.value,
-                    let asciiString = String(bytes: value, encoding: .utf8) {
-                    print("Value received: \(asciiString).")
+                    let asciiString = value.bytesToString(),
+                    let values = value.bytesToInt() {
                     
-                    NotificationCenter.default.post(
-                        name: NSNotification.Name(rawValue: "NotifyRight"),
-                        object: nil,
-                        userInfo: ["value_right": asciiString]
+                    print("Value received: \(asciiString).")
+                    self.rightPeripheral = peripheral
+                    NotificationCenter.postSensorValues(
+                        side: .right,
+                        string: asciiString,
+                        values: values
                     )
                 }
             }
@@ -156,11 +215,7 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
             if let value = characteristic.value,
                 let asciiString = String(data: value, encoding: .utf8) {
                 print("First left value received: \(asciiString).")
-                NotificationCenter.default.post(
-                    name: NSNotification.Name(rawValue: "NotifyLeft"),
-                    object: nil,
-                    userInfo: ["value_left": asciiString]
-                )
+                self.leftPeripheral = peripheral
             }
         }
         
@@ -169,11 +224,7 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
             if let value = characteristic.value,
                 let asciiString = String(data: value, encoding: .utf8) {
                 print("First right value received: \(asciiString).")
-                NotificationCenter.default.post(
-                    name: NSNotification.Name(rawValue: "NotifyRight"),
-                    object: nil,
-                    userInfo: ["value_right": asciiString]
-                )
+                self.rightPeripheral = peripheral
             }
         }
         
@@ -193,14 +244,18 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     // Central manager connected to a peripheral. Stop scanning when connected to 2 peripherals
-    // i.e., LEFT and RIGHT
+    // i.e., LEFT0 and RIGHT
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         peripheral.delegate = self
         peripheral.discoverServices(nil)
         print("Connected to peripheral: \(String(describing: peripheral.name))")
-        if self.peripherals.count == 1 {
+        if self.peripherals.count == 2 {
             self.stopScan()
         }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        
     }
     
     // Central manager disconnected from a peripheral. Find the current peripheral amongst the cached peripherals and

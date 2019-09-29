@@ -42,8 +42,9 @@ class CameraViewController: UIViewController {
 
 extension CameraViewController {
     func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: "NotifyLeft"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: "NotifyRight"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: BLEDeviceSide.left.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: BLEDeviceSide.right.rawValue), object: nil)
     }
     
     func removeObservers() {
@@ -52,7 +53,7 @@ extension CameraViewController {
     
     @objc func update(_ notification: Notification) {
         if let userInfo = notification.userInfo as? [String: Any] {
-            if let leftValues = userInfo["value_left"] as? [Int] {
+            if let leftValues = userInfo["values"] as? [Int] {
                 self.updateHelper(leftValues)
             }
         }

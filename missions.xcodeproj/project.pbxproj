@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E13A6A9F233ADAD7003D3415 /* LeftMissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A6A9E233ADAD7003D3415 /* LeftMissionsViewController.swift */; };
+		E13A6AA1233ADAF4003D3415 /* RightMissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A6AA0233ADAF4003D3415 /* RightMissionsViewController.swift */; };
+		E140A2CC2341149C00986539 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140A2CB2341149C00986539 /* Strings.swift */; };
+		E140A2CF2341159800986539 /* NotificationCenter+Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140A2CE2341159800986539 /* NotificationCenter+Missions.swift */; };
+		E140A2D22341178000986539 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140A2D12341178000986539 /* NotificationType.swift */; };
+		E16C62E5233E7B1F00E7A4C5 /* SelectDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C62E4233E7B1E00E7A4C5 /* SelectDeviceTableViewController.swift */; };
+		E16C62E7233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C62E6233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift */; };
+		E18F6AA42338308700AFA7EA /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F6AA32338308700AFA7EA /* PageViewController.swift */; };
+		E18F6AA6233849ED00AFA7EA /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F6AA5233849ED00AFA7EA /* HomePageViewController.swift */; };
+		E18F6AAE23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F6AAD23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift */; };
 		E1BABA892324951C009BAACF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BABA882324951C009BAACF /* Camera.swift */; };
 		E1BABA8B23259D61009BAACF /* SocketIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BABA8A23259D61009BAACF /* SocketIO.swift */; };
 		E1BABA8D2325A94F009BAACF /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BABA8C2325A94F009BAACF /* CameraViewController.swift */; };
@@ -26,6 +36,16 @@
 		06BCC4732A22130C4782FCD8 /* Pods-missions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-missions.release.xcconfig"; path = "Pods/Target Support Files/Pods-missions/Pods-missions.release.xcconfig"; sourceTree = "<group>"; };
 		2A53002EF744880EAB08C3AF /* Pods_missions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_missions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C17EB3290871AA563D09E91 /* Pods-missions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-missions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-missions/Pods-missions.debug.xcconfig"; sourceTree = "<group>"; };
+		E13A6A9E233ADAD7003D3415 /* LeftMissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMissionsViewController.swift; sourceTree = "<group>"; };
+		E13A6AA0233ADAF4003D3415 /* RightMissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMissionsViewController.swift; sourceTree = "<group>"; };
+		E140A2CB2341149C00986539 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		E140A2CE2341159800986539 /* NotificationCenter+Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Missions.swift"; sourceTree = "<group>"; };
+		E140A2D12341178000986539 /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
+		E16C62E4233E7B1E00E7A4C5 /* SelectDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDeviceTableViewController.swift; sourceTree = "<group>"; };
+		E16C62E6233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDeviceTableViewController.swift; sourceTree = "<group>"; };
+		E18F6AA32338308700AFA7EA /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		E18F6AA5233849ED00AFA7EA /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		E18F6AAD23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDeviceTableVIewCell.swift; sourceTree = "<group>"; };
 		E1BABA882324951C009BAACF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		E1BABA8A23259D61009BAACF /* SocketIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIO.swift; sourceTree = "<group>"; };
 		E1BABA8C2325A94F009BAACF /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +91,99 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E140A2CD2341158300986539 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E140A2CE2341159800986539 /* NotificationCenter+Missions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E140A2D02341176C00986539 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E140A2D12341178000986539 /* NotificationType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E16C62E8233E7C8000E7A4C5 /* Demo1 */ = {
+			isa = PBXGroup;
+			children = (
+				E1BC63AE230A45ED0096A014 /* HomeViewController.swift */,
+				E1BABA8C2325A94F009BAACF /* CameraViewController.swift */,
+				E1EEFC7C2309A65E006192EE /* MissionsViewController.swift */,
+			);
+			path = Demo1;
+			sourceTree = "<group>";
+		};
+		E16C62E9233E7CC800E7A4C5 /* Demo1 */ = {
+			isa = PBXGroup;
+			children = (
+				E1BABA882324951C009BAACF /* Camera.swift */,
+				E1BABA8A23259D61009BAACF /* SocketIO.swift */,
+			);
+			path = Demo1;
+			sourceTree = "<group>";
+		};
+		E18F6AA72339080D00AFA7EA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E16C62E9233E7CC800E7A4C5 /* Demo1 */,
+				E1BC63AC230A0E8B0096A014 /* Missions.swift */,
+				E1BABA8E232EDA74009BAACF /* BLE.swift */,
+				E140A2CB2341149C00986539 /* Strings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E18F6AA82339081800AFA7EA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E16C62E8233E7C8000E7A4C5 /* Demo1 */,
+				E18F6AAB233908A300AFA7EA /* Start */,
+				E18F6AAC233908C100AFA7EA /* Setup */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E18F6AA92339082100AFA7EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E18F6AAD23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E18F6AAA2339086100AFA7EA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E1EEFC832309A65F006192EE /* LaunchScreen.storyboard */,
+				E1EEFC7E2309A65E006192EE /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E18F6AAB233908A300AFA7EA /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				E18F6AA5233849ED00AFA7EA /* HomePageViewController.swift */,
+				E18F6AA32338308700AFA7EA /* PageViewController.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		E18F6AAC233908C100AFA7EA /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				E16C62E4233E7B1E00E7A4C5 /* SelectDeviceTableViewController.swift */,
+				E16C62E6233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift */,
+				E13A6A9E233ADAD7003D3415 /* LeftMissionsViewController.swift */,
+				E13A6AA0233ADAF4003D3415 /* RightMissionsViewController.swift */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
 		E1BC63B023143E190096A014 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,18 +214,15 @@
 		E1EEFC792309A65E006192EE /* missions */ = {
 			isa = PBXGroup;
 			children = (
+				E140A2D02341176C00986539 /* Protocols */,
+				E140A2CD2341158300986539 /* Extensions */,
+				E18F6AAA2339086100AFA7EA /* Storyboards */,
 				E1EEFC7A2309A65E006192EE /* AppDelegate.swift */,
-				E1BC63AE230A45ED0096A014 /* HomeViewController.swift */,
-				E1EEFC7C2309A65E006192EE /* MissionsViewController.swift */,
-				E1BABA8C2325A94F009BAACF /* CameraViewController.swift */,
-				E1EEFC7E2309A65E006192EE /* Main.storyboard */,
+				E18F6AA92339082100AFA7EA /* Views */,
+				E18F6AA82339081800AFA7EA /* Controllers */,
+				E18F6AA72339080D00AFA7EA /* Models */,
 				E1EEFC812309A65F006192EE /* Assets.xcassets */,
-				E1EEFC832309A65F006192EE /* LaunchScreen.storyboard */,
 				E1EEFC862309A65F006192EE /* Info.plist */,
-				E1BC63AC230A0E8B0096A014 /* Missions.swift */,
-				E1BABA882324951C009BAACF /* Camera.swift */,
-				E1BABA8A23259D61009BAACF /* SocketIO.swift */,
-				E1BABA8E232EDA74009BAACF /* BLE.swift */,
 			);
 			path = missions;
 			sourceTree = "<group>";
@@ -231,13 +341,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E13A6AA1233ADAF4003D3415 /* RightMissionsViewController.swift in Sources */,
+				E16C62E5233E7B1F00E7A4C5 /* SelectDeviceTableViewController.swift in Sources */,
 				E1BABA8B23259D61009BAACF /* SocketIO.swift in Sources */,
+				E18F6AA42338308700AFA7EA /* PageViewController.swift in Sources */,
 				E1BC63AD230A0E8B0096A014 /* Missions.swift in Sources */,
 				E1BC63B42314BBCF0096A014 /* SmartShoeInsoleClassifier.mlmodel in Sources */,
 				E1EEFC7D2309A65E006192EE /* MissionsViewController.swift in Sources */,
+				E16C62E7233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift in Sources */,
 				E1EEFC7B2309A65E006192EE /* AppDelegate.swift in Sources */,
 				E1BABA892324951C009BAACF /* Camera.swift in Sources */,
+				E13A6A9F233ADAD7003D3415 /* LeftMissionsViewController.swift in Sources */,
+				E18F6AA6233849ED00AFA7EA /* HomePageViewController.swift in Sources */,
+				E140A2CC2341149C00986539 /* Strings.swift in Sources */,
 				E1BC63AF230A45ED0096A014 /* HomeViewController.swift in Sources */,
+				E18F6AAE23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift in Sources */,
+				E140A2CF2341159800986539 /* NotificationCenter+Missions.swift in Sources */,
+				E140A2D22341178000986539 /* NotificationType.swift in Sources */,
 				E1BABA8F232EDA74009BAACF /* BLE.swift in Sources */,
 				E1BABA8D2325A94F009BAACF /* CameraViewController.swift in Sources */,
 			);
