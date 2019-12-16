@@ -41,32 +41,49 @@ class Missions {
 
     }
     
-    func getPrediction(model: SmartShoeInsoleClassifier, _ values: [Double], success: @escaping (_ classifier: SmartShoeInsoleClassifierOutput?) -> Void) {
+    func getValuePrediction(model: SmartShoeInsoleStanceValue, _ values: [Double], success: @escaping (_ output: SmartShoeInsoleStanceValueOutput?) -> Void) {
+        guard let regressor = try? model.prediction(
+        l_0: values[0],
+        l_1: values[1],
+        l_2: values[2],
+        l_3: values[3],
+        l_4: values[4],
+        l_5: values[5],
+        r_0: values[6],
+        r_1: values[7],
+        r_2: values[8],
+        r_3: values[9],
+        r_4: values[10],
+        r_5: values[11]
+        ) else {
+            success(nil)
+            fatalError("Unexpected runtime error")
+        }
+        
+        success(regressor)
+    }
+    
+    func getStancePrediction(model: SmartShoeInsoleStanceClassifier, _ values: [Double], success: @escaping (_ output: SmartShoeInsoleStanceClassifierOutput?) -> Void) {
         guard let classifier = try? model.prediction(
-            s_0: values[0],
-            s_1: values[1],
-            s_2: values[2],
-            s_3: values[3],
-            s_4: values[4],
-            s_5: values[5],
-            s_6: values[6],
-            s_7: values[7],
-            s_8: values[8],
-            s_9: values[9],
-            s_10: values[10],
-            s_11: values[11],
-            s_12: values[12],
-            s_13: values[13],
-            s_14: values[14],
-            s_15: values[15]
-            ) else {
-                success(nil)
-                fatalError("Unexpected runtime error")
+        l_0: values[0],
+        l_1: values[1],
+        l_2: values[2],
+        l_3: values[3],
+        l_4: values[4],
+        l_5: values[5],
+        r_0: values[6],
+        r_1: values[7],
+        r_2: values[8],
+        r_3: values[9],
+        r_4: values[10],
+        r_5: values[11]
+        ) else {
+            success(nil)
+            fatalError("Unexpected runtime error")
         }
         
         success(classifier)
     }
-    
 }
 
 extension String {

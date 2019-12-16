@@ -17,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var ble = BLE()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        
+
         
         return true
     }
@@ -46,5 +45,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate {
+    
+    func getJSON(from resource: String) -> String? {
+        if let path = Bundle.main.path(forResource: resource, ofType: "csv") {
+            do {
+                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                return String(data: data, encoding: .utf8)
+              } catch {
+                return nil
+                   // handle error
+              }
+        } else {
+            return nil
+        }
+        
+    }
+    
+    func storeSessions() {
+        for i in 0..<19 {
+            let resource = "session\(i)"
+            if let json = self.getJSON(from: resource) {
+                let csv = CSwiftV(with: json)
+                if let keyedRows = csv.keyedRows {
+                    let session: Session = Session(rows: keyedRows)
+                    Disk.store(session, to: .documents, as: "\(resource).json")
+                    print(session.description())
+                }
+            }
+        }
+    }
+    
+    func saveSessions(_ sessions: [Session]) {
+        for (i, session) in sessions.enumerated() {
+            let resource = "session\(i).json"
+            Disk.store(session, to: .documents, as: resource)
+            print(session.description())
+        }
+    }
+    
+    func retrieveSessions() -> [Session] {
+        var sessions: [Session] = []
+        for i in 0..<5 {
+            let resource = "session\(i).json"
+            if Disk.fileExists(resource, in: .documents) {
+                let session = Disk.retrieve(resource, from: .documents, as: Session.self)
+                sessions.append(session)
+                print(session.description())
+            } else {
+                continue
+            }
+        }
+        return sessions
+    }
+    
+    func clearFile(at index: Int) {
+        let fileName = "session\(index).json"
+        Disk.remove(fileName, from: .documents)
+    }
+    
+    func delay(_ delay: Double, closure: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + delay, execute: closure)
+    }
+    
 }
 

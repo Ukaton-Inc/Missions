@@ -19,15 +19,6 @@ class HomePageViewController: UIViewController {
     
         self.setupContainerView()
     }
-    
-    @IBAction func onStartButtonTapped(sender: UIButton) {
-    
-        let nc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectDeviceNavigationController")
-        
-        nc.modalPresentationStyle = .overFullScreen
-        
-        self.present(nc, animated: true, completion: nil)
-    }
 
 }
 

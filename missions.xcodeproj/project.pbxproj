@@ -14,16 +14,28 @@
 		E140A2D22341178000986539 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140A2D12341178000986539 /* NotificationType.swift */; };
 		E16C62E5233E7B1F00E7A4C5 /* SelectDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C62E4233E7B1E00E7A4C5 /* SelectDeviceTableViewController.swift */; };
 		E16C62E7233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C62E6233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift */; };
+		E174C98D234C3193002B6A42 /* MissionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E174C98C234C3193002B6A42 /* MissionsView.xib */; };
+		E174C98F234C3642002B6A42 /* MissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174C98E234C3642002B6A42 /* MissionsView.swift */; };
+		E18C923D23688744002BAFF6 /* String+Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C923C23688744002BAFF6 /* String+Missions.swift */; };
 		E18F6AA42338308700AFA7EA /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F6AA32338308700AFA7EA /* PageViewController.swift */; };
 		E18F6AA6233849ED00AFA7EA /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F6AA5233849ED00AFA7EA /* HomePageViewController.swift */; };
 		E18F6AAE23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F6AAD23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift */; };
+		E19274F623919CC0002F16BD /* ActivityPredictionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19274F523919CC0002F16BD /* ActivityPredictionViewController.swift */; };
+		E19429D323A738FC00F83066 /* SmartShoeInsoleStanceClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E19429D123A738FC00F83066 /* SmartShoeInsoleStanceClassifier.mlmodel */; };
+		E19429D423A738FC00F83066 /* SmartShoeInsoleStanceValue.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E19429D223A738FC00F83066 /* SmartShoeInsoleStanceValue.mlmodel */; };
 		E1BABA892324951C009BAACF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BABA882324951C009BAACF /* Camera.swift */; };
 		E1BABA8B23259D61009BAACF /* SocketIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BABA8A23259D61009BAACF /* SocketIO.swift */; };
 		E1BABA8D2325A94F009BAACF /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BABA8C2325A94F009BAACF /* CameraViewController.swift */; };
 		E1BABA8F232EDA74009BAACF /* BLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BABA8E232EDA74009BAACF /* BLE.swift */; };
 		E1BC63AD230A0E8B0096A014 /* Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BC63AC230A0E8B0096A014 /* Missions.swift */; };
 		E1BC63AF230A45ED0096A014 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BC63AE230A45ED0096A014 /* HomeViewController.swift */; };
-		E1BC63B42314BBCF0096A014 /* SmartShoeInsoleClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1BC63B32314BBCF0096A014 /* SmartShoeInsoleClassifier.mlmodel */; };
+		E1BFFC68234A4BBA00692E84 /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BFFC67234A4BBA00692E84 /* RecordingTableViewCell.swift */; };
+		E1BFFC6A234A4F0600692E84 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BFFC69234A4F0600692E84 /* MainViewController.swift */; };
+		E1DBA5412358B6F7000D458B /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DBA5402358B6F7000D458B /* Disk.swift */; };
+		E1DBA58E235D2C77000D458B /* CSwiftV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DBA58D235D2C77000D458B /* CSwiftV.swift */; };
+		E1DBA590235D2C98000D458B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DBA58F235D2C98000D458B /* Session.swift */; };
+		E1DBA59D236353E6000D458B /* Date+Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DBA59C236353E6000D458B /* Date+Missions.swift */; };
+		E1DBA59F2363542B000D458B /* TimeInterval+Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DBA59E2363542B000D458B /* TimeInterval+Missions.swift */; };
 		E1EEFC7B2309A65E006192EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EEFC7A2309A65E006192EE /* AppDelegate.swift */; };
 		E1EEFC7D2309A65E006192EE /* MissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EEFC7C2309A65E006192EE /* MissionsViewController.swift */; };
 		E1EEFC802309A65E006192EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1EEFC7E2309A65E006192EE /* Main.storyboard */; };
@@ -43,16 +55,28 @@
 		E140A2D12341178000986539 /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		E16C62E4233E7B1E00E7A4C5 /* SelectDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDeviceTableViewController.swift; sourceTree = "<group>"; };
 		E16C62E6233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDeviceTableViewController.swift; sourceTree = "<group>"; };
+		E174C98C234C3193002B6A42 /* MissionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionsView.xib; sourceTree = "<group>"; };
+		E174C98E234C3642002B6A42 /* MissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsView.swift; sourceTree = "<group>"; };
+		E18C923C23688744002BAFF6 /* String+Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Missions.swift"; sourceTree = "<group>"; };
 		E18F6AA32338308700AFA7EA /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		E18F6AA5233849ED00AFA7EA /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		E18F6AAD23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDeviceTableVIewCell.swift; sourceTree = "<group>"; };
+		E19274F523919CC0002F16BD /* ActivityPredictionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPredictionViewController.swift; sourceTree = "<group>"; };
+		E19429D123A738FC00F83066 /* SmartShoeInsoleStanceClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SmartShoeInsoleStanceClassifier.mlmodel; sourceTree = "<group>"; };
+		E19429D223A738FC00F83066 /* SmartShoeInsoleStanceValue.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SmartShoeInsoleStanceValue.mlmodel; sourceTree = "<group>"; };
 		E1BABA882324951C009BAACF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		E1BABA8A23259D61009BAACF /* SocketIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIO.swift; sourceTree = "<group>"; };
 		E1BABA8C2325A94F009BAACF /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E1BABA8E232EDA74009BAACF /* BLE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE.swift; sourceTree = "<group>"; };
 		E1BC63AC230A0E8B0096A014 /* Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missions.swift; sourceTree = "<group>"; };
 		E1BC63AE230A45ED0096A014 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		E1BC63B32314BBCF0096A014 /* SmartShoeInsoleClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SmartShoeInsoleClassifier.mlmodel; sourceTree = "<group>"; };
+		E1BFFC67234A4BBA00692E84 /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
+		E1BFFC69234A4F0600692E84 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E1DBA5402358B6F7000D458B /* Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
+		E1DBA58D235D2C77000D458B /* CSwiftV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSwiftV.swift; sourceTree = "<group>"; };
+		E1DBA58F235D2C98000D458B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		E1DBA59C236353E6000D458B /* Date+Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Missions.swift"; sourceTree = "<group>"; };
+		E1DBA59E2363542B000D458B /* TimeInterval+Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Missions.swift"; sourceTree = "<group>"; };
 		E1EEFC772309A65E006192EE /* missions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = missions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1EEFC7A2309A65E006192EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1EEFC7C2309A65E006192EE /* MissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				E140A2CE2341159800986539 /* NotificationCenter+Missions.swift */,
+				E1DBA59C236353E6000D458B /* Date+Missions.swift */,
+				E1DBA59E2363542B000D458B /* TimeInterval+Missions.swift */,
+				E18C923C23688744002BAFF6 /* String+Missions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -110,6 +137,10 @@
 		E16C62E8233E7C8000E7A4C5 /* Demo1 */ = {
 			isa = PBXGroup;
 			children = (
+				E16C62E4233E7B1E00E7A4C5 /* SelectDeviceTableViewController.swift */,
+				E16C62E6233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift */,
+				E13A6A9E233ADAD7003D3415 /* LeftMissionsViewController.swift */,
+				E13A6AA0233ADAF4003D3415 /* RightMissionsViewController.swift */,
 				E1BC63AE230A45ED0096A014 /* HomeViewController.swift */,
 				E1BABA8C2325A94F009BAACF /* CameraViewController.swift */,
 				E1EEFC7C2309A65E006192EE /* MissionsViewController.swift */,
@@ -133,6 +164,7 @@
 				E1BC63AC230A0E8B0096A014 /* Missions.swift */,
 				E1BABA8E232EDA74009BAACF /* BLE.swift */,
 				E140A2CB2341149C00986539 /* Strings.swift */,
+				E1DBA58F235D2C98000D458B /* Session.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,9 +172,9 @@
 		E18F6AA82339081800AFA7EA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E16C62E8233E7C8000E7A4C5 /* Demo1 */,
 				E18F6AAB233908A300AFA7EA /* Start */,
-				E18F6AAC233908C100AFA7EA /* Setup */,
+				E1BFFC66234A477500692E84 /* Demo2 */,
+				E16C62E8233E7C8000E7A4C5 /* Demo1 */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -151,6 +183,9 @@
 			isa = PBXGroup;
 			children = (
 				E18F6AAD23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift */,
+				E1BFFC67234A4BBA00692E84 /* RecordingTableViewCell.swift */,
+				E174C98C234C3193002B6A42 /* MissionsView.xib */,
+				E174C98E234C3642002B6A42 /* MissionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,23 +208,31 @@
 			path = Start;
 			sourceTree = "<group>";
 		};
-		E18F6AAC233908C100AFA7EA /* Setup */ = {
-			isa = PBXGroup;
-			children = (
-				E16C62E4233E7B1E00E7A4C5 /* SelectDeviceTableViewController.swift */,
-				E16C62E6233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift */,
-				E13A6A9E233ADAD7003D3415 /* LeftMissionsViewController.swift */,
-				E13A6AA0233ADAF4003D3415 /* RightMissionsViewController.swift */,
-			);
-			path = Setup;
-			sourceTree = "<group>";
-		};
 		E1BC63B023143E190096A014 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E1BC63B32314BBCF0096A014 /* SmartShoeInsoleClassifier.mlmodel */,
+				E19429D123A738FC00F83066 /* SmartShoeInsoleStanceClassifier.mlmodel */,
+				E19429D223A738FC00F83066 /* SmartShoeInsoleStanceValue.mlmodel */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E1BFFC66234A477500692E84 /* Demo2 */ = {
+			isa = PBXGroup;
+			children = (
+				E1BFFC69234A4F0600692E84 /* MainViewController.swift */,
+				E19274F523919CC0002F16BD /* ActivityPredictionViewController.swift */,
+			);
+			path = Demo2;
+			sourceTree = "<group>";
+		};
+		E1DBA53F2358B6E2000D458B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E1DBA5402358B6F7000D458B /* Disk.swift */,
+				E1DBA58D235D2C77000D458B /* CSwiftV.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E1EEFC6E2309A65E006192EE = {
@@ -214,10 +257,11 @@
 		E1EEFC792309A65E006192EE /* missions */ = {
 			isa = PBXGroup;
 			children = (
+				E1EEFC7A2309A65E006192EE /* AppDelegate.swift */,
+				E1DBA53F2358B6E2000D458B /* Helpers */,
 				E140A2D02341176C00986539 /* Protocols */,
 				E140A2CD2341158300986539 /* Extensions */,
 				E18F6AAA2339086100AFA7EA /* Storyboards */,
-				E1EEFC7A2309A65E006192EE /* AppDelegate.swift */,
 				E18F6AA92339082100AFA7EA /* Views */,
 				E18F6AA82339081800AFA7EA /* Controllers */,
 				E18F6AA72339080D00AFA7EA /* Models */,
@@ -288,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1EEFC852309A65F006192EE /* LaunchScreen.storyboard in Resources */,
+				E174C98D234C3193002B6A42 /* MissionsView.xib in Resources */,
 				E1EEFC822309A65F006192EE /* Assets.xcassets in Resources */,
 				E1EEFC802309A65E006192EE /* Main.storyboard in Resources */,
 			);
@@ -341,25 +386,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1DBA5412358B6F7000D458B /* Disk.swift in Sources */,
+				E1BFFC6A234A4F0600692E84 /* MainViewController.swift in Sources */,
 				E13A6AA1233ADAF4003D3415 /* RightMissionsViewController.swift in Sources */,
 				E16C62E5233E7B1F00E7A4C5 /* SelectDeviceTableViewController.swift in Sources */,
 				E1BABA8B23259D61009BAACF /* SocketIO.swift in Sources */,
 				E18F6AA42338308700AFA7EA /* PageViewController.swift in Sources */,
 				E1BC63AD230A0E8B0096A014 /* Missions.swift in Sources */,
-				E1BC63B42314BBCF0096A014 /* SmartShoeInsoleClassifier.mlmodel in Sources */,
+				E1DBA59D236353E6000D458B /* Date+Missions.swift in Sources */,
 				E1EEFC7D2309A65E006192EE /* MissionsViewController.swift in Sources */,
+				E19274F623919CC0002F16BD /* ActivityPredictionViewController.swift in Sources */,
+				E19429D323A738FC00F83066 /* SmartShoeInsoleStanceClassifier.mlmodel in Sources */,
 				E16C62E7233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift in Sources */,
+				E18C923D23688744002BAFF6 /* String+Missions.swift in Sources */,
+				E1DBA590235D2C98000D458B /* Session.swift in Sources */,
+				E174C98F234C3642002B6A42 /* MissionsView.swift in Sources */,
 				E1EEFC7B2309A65E006192EE /* AppDelegate.swift in Sources */,
 				E1BABA892324951C009BAACF /* Camera.swift in Sources */,
 				E13A6A9F233ADAD7003D3415 /* LeftMissionsViewController.swift in Sources */,
+				E1BFFC68234A4BBA00692E84 /* RecordingTableViewCell.swift in Sources */,
 				E18F6AA6233849ED00AFA7EA /* HomePageViewController.swift in Sources */,
+				E1DBA59F2363542B000D458B /* TimeInterval+Missions.swift in Sources */,
 				E140A2CC2341149C00986539 /* Strings.swift in Sources */,
 				E1BC63AF230A45ED0096A014 /* HomeViewController.swift in Sources */,
 				E18F6AAE23390BE000AFA7EA /* SelectDeviceTableVIewCell.swift in Sources */,
 				E140A2CF2341159800986539 /* NotificationCenter+Missions.swift in Sources */,
 				E140A2D22341178000986539 /* NotificationType.swift in Sources */,
 				E1BABA8F232EDA74009BAACF /* BLE.swift in Sources */,
+				E1DBA58E235D2C77000D458B /* CSwiftV.swift in Sources */,
 				E1BABA8D2325A94F009BAACF /* CameraViewController.swift in Sources */,
+				E19429D423A738FC00F83066 /* SmartShoeInsoleStanceValue.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

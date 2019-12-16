@@ -64,7 +64,7 @@ extension RightMissionsViewController {
     }
     
     func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: BLEDeviceSide.left.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NSNotification.Name(rawValue: BLEDeviceSide.right.rawValue), object: nil)
     }
     
     func removeObservers() {
