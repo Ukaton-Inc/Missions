@@ -23,7 +23,7 @@ The Missions app uses the following to work properly
 
 * [ESP32] - An embedded microcontroller that contains a Wifi+Bluetooth LE Module
 * [Flexible PCB Insoles] - A pair of thin, flexible PCBs in the shape of a shoe insole that contains a spatial arrangement of sensors used to detect foot pressure changes.
-* [FSR] - Force Sensitive Resisotrs made of mylar material that sit on top of each sensor to smoothen out the pressure signal.
+* [FSR] - Force Sensitive Resistors made of mylar material that sit on top of each sensor to smoothen out the pressure signal.
 * [PlatformIO] - an easy to use IDE that enables a developer to write code for many different types of microcontrollers ranging from ESP32 to Arduino.
 * [CreateML] - is an iOS/Mac framework that enables developers to create machine learning models ranging from classifiers to regressors.
 * [CoreML] - is an iOS/Mac framework that enables developers to make machine learning predictions within an application given a model.
