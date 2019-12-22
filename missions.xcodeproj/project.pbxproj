@@ -42,6 +42,8 @@
 		E1EEFC822309A65F006192EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1EEFC812309A65F006192EE /* Assets.xcassets */; };
 		E1EEFC852309A65F006192EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1EEFC832309A65F006192EE /* LaunchScreen.storyboard */; };
 		EACE7B6222F28BB7669CC98D /* Pods_missions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A53002EF744880EAB08C3AF /* Pods_missions.framework */; };
+		EAF98BAB23A98F2100E42645 /* AudioPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF98BAA23A98F2100E42645 /* AudioPlayback.swift */; };
+		EAF98BAE23A99CE900E42645 /* Lover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EAF98BAD23A99CE900E42645 /* Lover.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		E1EEFC812309A65F006192EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1EEFC842309A65F006192EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1EEFC862309A65F006192EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF98BAA23A98F2100E42645 /* AudioPlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayback.swift; sourceTree = "<group>"; };
+		EAF98BAD23A99CE900E42645 /* Lover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Lover.mp3; path = ../../../../Downloads/Lover.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 			children = (
 				E16C62E9233E7CC800E7A4C5 /* Demo1 */,
 				E1BC63AC230A0E8B0096A014 /* Missions.swift */,
+				EAF98BAA23A98F2100E42645 /* AudioPlayback.swift */,
 				E1BABA8E232EDA74009BAACF /* BLE.swift */,
 				E140A2CB2341149C00986539 /* Strings.swift */,
 				E1DBA58F235D2C98000D458B /* Session.swift */,
@@ -264,11 +269,20 @@
 				E18F6AAA2339086100AFA7EA /* Storyboards */,
 				E18F6AA92339082100AFA7EA /* Views */,
 				E18F6AA82339081800AFA7EA /* Controllers */,
+				EAF98BAC23A99CD400E42645 /* Sound */,
 				E18F6AA72339080D00AFA7EA /* Models */,
 				E1EEFC812309A65F006192EE /* Assets.xcassets */,
 				E1EEFC862309A65F006192EE /* Info.plist */,
 			);
 			path = missions;
+			sourceTree = "<group>";
+		};
+		EAF98BAC23A99CD400E42645 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				EAF98BAD23A99CE900E42645 /* Lover.mp3 */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +347,7 @@
 			files = (
 				E1EEFC852309A65F006192EE /* LaunchScreen.storyboard in Resources */,
 				E174C98D234C3193002B6A42 /* MissionsView.xib in Resources */,
+				EAF98BAE23A99CE900E42645 /* Lover.mp3 in Resources */,
 				E1EEFC822309A65F006192EE /* Assets.xcassets in Resources */,
 				E1EEFC802309A65E006192EE /* Main.storyboard in Resources */,
 			);
@@ -399,6 +414,7 @@
 				E19429D323A738FC00F83066 /* SmartShoeInsoleStanceClassifier.mlmodel in Sources */,
 				E16C62E7233E7C1000E7A4C5 /* SetupDeviceTableViewController.swift in Sources */,
 				E18C923D23688744002BAFF6 /* String+Missions.swift in Sources */,
+				EAF98BAB23A98F2100E42645 /* AudioPlayback.swift in Sources */,
 				E1DBA590235D2C98000D458B /* Session.swift in Sources */,
 				E174C98F234C3642002B6A42 /* MissionsView.swift in Sources */,
 				E1EEFC7B2309A65E006192EE /* AppDelegate.swift in Sources */,

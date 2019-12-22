@@ -134,9 +134,17 @@ enum PlaybackState: Int {
         switch self {
         case .pause:
             return .play
-            
         case .play:
             return .pause
+        }
+    }
+    
+    var actualImage: UIImage? {
+        switch self {
+        case .play:
+            return UIImage(systemName: "play.fill")
+        case .pause:
+            return UIImage(systemName: "pause.fill")
         }
     }
 }
