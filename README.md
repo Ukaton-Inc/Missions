@@ -3,7 +3,7 @@
 
 Missions is an iOS companion application that enables users use a pair of bluetooth enabled smart shoe insoles to detect posture and weight changes in real time. It's also a tool to help users collect posture and weight training data, which can be airdropped or emailed to a local machine to create Machine Learning models out of. 
 
-# Available Now
+# Available
 
   - Navigate to the home screen to collect posture training data
   - Navigate to the activity prediction screen to your current stance based on a machine learning stance classifier model prediction.
