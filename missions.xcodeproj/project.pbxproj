@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1367FD723AC6C60009C7B25 /* Array+Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1367FD623AC6C60009C7B25 /* Array+Missions.swift */; };
 		E13A6A9F233ADAD7003D3415 /* LeftMissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A6A9E233ADAD7003D3415 /* LeftMissionsViewController.swift */; };
 		E13A6AA1233ADAF4003D3415 /* RightMissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A6AA0233ADAF4003D3415 /* RightMissionsViewController.swift */; };
 		E140A2CC2341149C00986539 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140A2CB2341149C00986539 /* Strings.swift */; };
@@ -50,6 +51,7 @@
 		06BCC4732A22130C4782FCD8 /* Pods-missions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-missions.release.xcconfig"; path = "Pods/Target Support Files/Pods-missions/Pods-missions.release.xcconfig"; sourceTree = "<group>"; };
 		2A53002EF744880EAB08C3AF /* Pods_missions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_missions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C17EB3290871AA563D09E91 /* Pods-missions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-missions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-missions/Pods-missions.debug.xcconfig"; sourceTree = "<group>"; };
+		E1367FD623AC6C60009C7B25 /* Array+Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Missions.swift"; sourceTree = "<group>"; };
 		E13A6A9E233ADAD7003D3415 /* LeftMissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMissionsViewController.swift; sourceTree = "<group>"; };
 		E13A6AA0233ADAF4003D3415 /* RightMissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMissionsViewController.swift; sourceTree = "<group>"; };
 		E140A2CB2341149C00986539 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				E1DBA59C236353E6000D458B /* Date+Missions.swift */,
 				E1DBA59E2363542B000D458B /* TimeInterval+Missions.swift */,
 				E18C923C23688744002BAFF6 /* String+Missions.swift */,
+				E1367FD623AC6C60009C7B25 /* Array+Missions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				E174C98F234C3642002B6A42 /* MissionsView.swift in Sources */,
 				E1EEFC7B2309A65E006192EE /* AppDelegate.swift in Sources */,
 				E1BABA892324951C009BAACF /* Camera.swift in Sources */,
+				E1367FD723AC6C60009C7B25 /* Array+Missions.swift in Sources */,
 				E13A6A9F233ADAD7003D3415 /* LeftMissionsViewController.swift in Sources */,
 				E1BFFC68234A4BBA00692E84 /* RecordingTableViewCell.swift in Sources */,
 				E18F6AA6233849ED00AFA7EA /* HomePageViewController.swift in Sources */,

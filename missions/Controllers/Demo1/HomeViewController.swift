@@ -66,15 +66,15 @@ extension HomeViewController {
         
         guard
             let userInfo = notification.userInfo,
-            let string = userInfo["string"] as? String
+            let values = userInfo["values"] as? [Int]
         else { return }
         
         switch notification.name.rawValue {
         case BLEDeviceSide.left.rawValue:
-            self.sensorLabel.text = string
+            self.sensorLabel.text = "\(values)"
 
         case BLEDeviceSide.right.rawValue:
-            self.sensorLabel.text = string
+            self.sensorLabel.text = "\(values)"
 
         default: break
         }

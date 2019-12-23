@@ -15,13 +15,7 @@ enum BLEDeviceSide: String {
     case right = "right"
 }
 
-enum SensorIndex: Int {
-    case firstSet = 1
-    case secondSet = 2
-}
-
 enum BLEAction: UInt8 {
-    
     case stopStream
     case startStream
     case samplingRate
@@ -49,17 +43,6 @@ class BLE: NSObject {
     var rxCharacteristicRight: CBCharacteristic?
     var connectedPeripherals = Int(0)
     var isConnected: Bool = false
-    
-    var l1_sensors: [Int] = []
-    var l2_sensors: [Int] = []
-    var r1_sensors: [Int] = []
-    var r2_sensors: [Int] = []
-    var l_packets: Int = 0
-    var r_packets: Int = 0
-    var l_sensors = [Int](repeating: 0, count: 6)
-    var r_sensors = [Int](repeating: 0, count: 6)
-
-    
     
     override init() {
         super.init()
@@ -193,7 +176,6 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
             if let rxCharacteristicLeft = self.rxCharacteristicLeft,
                 characteristic == rxCharacteristicLeft {
                 if let data = characteristic.value {
-                    
                     self.leftPeripheral = peripheral
                     self.notifyWithData(data, side: .left)
                 }
@@ -215,17 +197,14 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
         print("Updated notification state for characteristic: \(characteristic)")
         if let rxCharacteristicLeft = self.rxCharacteristicLeft,
             characteristic == rxCharacteristicLeft {
-            if let value = characteristic.value,
-                let asciiString = String(data: value, encoding: .utf8) {
-                print("First left value received: \(asciiString).")
+            if let _ = characteristic.value {
                 self.leftPeripheral = peripheral
             }
         }
         
         if let rxCharacteristicRight = self.rxCharacteristicRight,
             characteristic == rxCharacteristicRight {
-            if let value = characteristic.value,
-                let asciiString = String(data: value, encoding: .utf8) {
+            if let _ = characteristic.value {
                 self.rightPeripheral = peripheral
             }
         }
@@ -296,120 +275,44 @@ extension BLE: CBCentralManagerDelegate, CBPeripheralDelegate {
 
 extension Data {
     
-    func bytesToString() -> String? {
-        guard let values = self.valuesFromData(), values.count == 4 else { return nil }
-        let index = values[0]
-        let s0 = values[1]
-        let s1 = values[2]
-        let s2 = values[3]
-        
-        return """
-            index: \(index)
-            s0: \(s0)
-            s1: \(s1)
-            s2: \(s2)
-        """
-    }
-    
-    
-    /// Values that arrive from the smart shoe insole sensors range from [0, 255] and are in
-    /// byte format. 
-    func bytesToInt() -> [Int]? {
-        var values = self.map({ return Int(String(Character(UnicodeScalar($0)))) ?? 0})
-        let index = values.removeFirst()
-        var s0 = 0
-        var s1 = 0
-        var s2 = 0
-        for (i, _) in values.enumerated() {
-            let acc = values[i] * Int(powf(10, Float(3-(i%4))))
-            if i < 4 {
-                s0 += acc
-            } else if 4 <= i && i < 8 {
-                s1 += acc
-            } else if 8 <= i && i < 12 {
-                s2 += acc
-            }
-                                                    
+    /// A Class function that takes a data object, casts it to a byte array, and chunks it into groups of 2 bytes to reconstruct the transmitted sensor value array.
+    func bytesToUInt16() -> [UInt16]? {
+        print("Packet Size: [\(self.count) bytes]")
+        guard self.count == 12 else {
+            return nil
+        }
+
+        let byteArray: [UInt8] = [UInt8](self)
+        let chunks = byteArray.chunked(into: 2)
+        var sensors: [UInt16] = []
+        for chunk in chunks {
+            var s_i: UInt16 = 0
+            let data_i = NSData(bytes: chunk, length: 2)
+            data_i.getBytes(&s_i, length: 2)
+            s_i = UInt16(littleEndian: s_i)
+            sensors.append(s_i)
         }
         
-        return [index, s0, s1, s2]
-    }
-    
-    func valuesFromData() -> [Int]? {
-        var integerValues = self.map({ Int(String(Character(UnicodeScalar($0)))) ?? 0})
-        let index = integerValues.removeFirst()
-        var s0 = 0
-        var s1 = 0
-        var s2 = 0
-        for (i, value) in integerValues.enumerated() {
-            let acc = value * Int(powf(10, Float(3-(i%4))))
-            switch i {
-            case 0...3:
-                s0 += acc
-            case 4...7:
-                s1 += acc
-            case 8...11:
-                s2 += acc
-            default: break
-            }
+        for (i, sensor) in sensors.enumerated() {
+            print("""
+                    s_\(i): \(sensor)
+                """)
         }
-        
-        return [index, s0, s1, s2]
+        return sensors
     }
-    
-    
-   
 }
 
 extension BLE {
+    
     func notifyWithData(_ data: Data, side: BLEDeviceSide) {
         guard
-            var values = data.valuesFromData(),
-            let index = values.first,
-            let sensorIndex = SensorIndex(rawValue: index)
+            let sensors = data.bytesToUInt16(),
+            sensors.count == 6
         else { return }
-        
-        // remove index value from array
-        _ = values.removeFirst()
-        
-        switch sensorIndex {
-        case .firstSet:
-            if side == .left {
-                self.l_packets += 1
-                self.l1_sensors = values
-            }
-            if side == .right {
-                self.r_packets += 1
-                self.r1_sensors = values
-            }
-            
-        case .secondSet:
-            if side == .left {
-                self.l_packets += 1
-                self.l2_sensors = values
-            }
-            if side == .right {
-                self.r_packets += 1
-                self.r2_sensors = values
-            }
-        }
-        
-        if self.l_packets == 2 {
-            self.l_packets = 0
-            self.l_sensors = self.l1_sensors + self.l2_sensors
-            NotificationCenter.postSensorValues(
-                side: .left,
-                string: "",
-                values: self.l_sensors
-            )
-        } else if r_packets == 2 {
-            self.r_packets = 0
-            self.r_sensors = self.r1_sensors + self.r2_sensors
-            NotificationCenter.postSensorValues(
-                side: .right,
-                string: "",
-                values: self.r_sensors
-            )
-        }
+        let values = sensors.map( { Int($0) })
+        NotificationCenter.postSensorValues(
+            side: side,
+            values: values
+        )
     }
 }

@@ -11,14 +11,13 @@ import Foundation
 
 extension NotificationCenter {
     
-    static func postSensorValues(side: BLEDeviceSide, string: String, values: [Int]) {
+    static func postSensorValues(side: BLEDeviceSide, values: [Int]) {
         
         let name = side.rawValue
         self.default.post(
             name: NSNotification.Name(rawValue: name),
             object: nil,
-            userInfo: ["string": string,
-                       "values": values]
+            userInfo: ["values": values]
         )
     }
     
